@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const MyLabel = (props) => {
-    const {attributes={   placeholder: "Please Type My ID"}}=props;
+  const attributes = {};
+  const { id } = props.child;
+  if (id) {
+    attributes["id"] = id;
+  }
 
-    return (
-        <div>
-            <label> my label</label>
-        </div>
-    );
+  return (
+    <div>
+      <label {...attributes}></label>
+    </div>
+  );
 };
 
 export default MyLabel;

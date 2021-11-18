@@ -1,20 +1,13 @@
 import React from "react";
-import { lazy, Suspense } from "react";
 import ComponentInChild from "./ComponentInChild";
 
 const Page = (props) => {
-  const { children, activeTab } = props;
-
-  const MyInput = lazy(() => import(`./MyInput`));
-
-  const MyButton = lazy(() => import(`./MyButton`));
-
-  const MyLabel = lazy(() => import(`./MyLabel`));
+  const { children } = props;
 
   return (
     <div>
-      {children.map((child) => (
-        <ComponentInChild child={child}/>
+      {children.map((child, index) => (
+        <ComponentInChild key={index} child={child} />
       ))}
     </div>
   );

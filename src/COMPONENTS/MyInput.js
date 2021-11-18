@@ -1,13 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const MyInput = (props) => {
-    const {attributes={   placeholder: "Please Type My ID"}}=props;
+  const { attributes, id } = props.child;
+  if (id) {
+    attributes["id"] = id;
+  }
 
-    return (
-        <div>
-            <input {...attributes}/>
-        </div>
-    );
+  return (
+    <div>
+      <input {...attributes} />
+    </div>
+  );
 };
 
 export default MyInput;
